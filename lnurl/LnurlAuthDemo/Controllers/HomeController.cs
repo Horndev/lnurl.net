@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using DemoWebApp.Models;
+using LnurlAuthDemo.Models;
 
-namespace DemoWebApp.Controllers
+namespace LnurlAuthDemo.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace DemoWebApp.Models
+namespace LnurlAuthDemo.Models
 {
     public class ErrorViewModel
     {
