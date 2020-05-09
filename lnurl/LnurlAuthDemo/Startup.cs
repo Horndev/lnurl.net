@@ -12,6 +12,7 @@ using LnurlAuthDemo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using LnurlAuth;
 
 namespace LnurlAuthDemo
 {
@@ -32,6 +33,10 @@ namespace LnurlAuthDemo
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // This is where the middleware will be installed
+            services.AddAuthentication().AddLnurlAuth();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
