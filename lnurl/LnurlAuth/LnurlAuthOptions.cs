@@ -10,6 +10,15 @@ namespace LnurlAuth
         public LnurlAuthOptions()
         {
             // TODO
+            ClaimsIssuer = LnurlAuthDefaults.Issuer;
+
+            CallbackPath = LnurlAuthDefaults.CallbackPath;
+
         }
+
+        /// <summary>
+        /// Gets or sets the URI where the client will be redirected to authenticate.
+        /// </summary>
+        public string AuthorizationEndpoint { get; set; }
     }
 }

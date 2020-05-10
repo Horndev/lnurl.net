@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using LnurlAuth;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace LnurlAuthDemo
 {
@@ -35,7 +36,20 @@ namespace LnurlAuthDemo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // This is where the middleware will be installed
-            services.AddAuthentication().AddLnurlAuth();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/signin";
+                options.LogoutPath = "/signout";
+            })
+            .AddLnurlAuth(options =>
+            {
+                options.CallbackPath = "";
+                options.AccessDeniedPath = "";
+            });
 
             services.AddControllersWithViews();
             services.AddRazorPages();
