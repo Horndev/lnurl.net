@@ -1,3 +1,5 @@
+![.NET Core](https://github.com/Horndev/lnurl.net/workflows/.NET%20Core/badge.svg)
+
 # lnurl.net
 Library for Lightning Network URL in C#
 
