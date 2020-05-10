@@ -13,7 +13,29 @@ For example, Bitcoin Lightning Wallet (BLW) supports this.
 
 ### Installation
 
-[ ] TODO
+Install like any other MVC Core middleware in your Web App's Startup.cs:
+
+```
+services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/signin";
+    options.LogoutPath = "/signout";
+})
+.AddLnurlAuth(options =>
+{
+    options.CallbackPath = "";
+    options.AccessDeniedPath = "";
+});
+```
+
+#### Options
+
+**CallbackPath:*** This is where the wallet will call back
+**AccessDeniedPath:*** This is the custom endpoint to direct the user on failed authentication.
 
 
 
