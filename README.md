@@ -35,6 +35,7 @@ services.AddAuthentication(options =>
 #### Options
 
 **CallbackPath:*** This is where the wallet will call back
+
 **AccessDeniedPath:*** This is the custom endpoint to direct the user on failed authentication.
 
 
